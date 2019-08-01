@@ -1,3 +1,9 @@
+# Others
+request.json
+
+# Idea
+.idea/
+
 # Logs
 logs
 *.log
