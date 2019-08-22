@@ -11,7 +11,7 @@ if(justChangedFiles && allFiles) {
     return process.exit(-1);
 }
 
-const stage = 'production';
+const stage = 'development';
 
 async function run() {
     let filePaths = [];
@@ -86,6 +86,10 @@ function _convertViewDefinition(viewDefinition) {
     const schemaId = viewDefinition.schemaId;
     const match = schemaNameRegex.exec(schemaId);
     const schemaName = match[1];
+
+    if(!schemaName) {
+        throw new Error('Cannot find the schema name.');
+    }
 
     delete viewDefinition.id;
     delete viewDefinition.schemaId;
